@@ -63,9 +63,14 @@ namespace Underwater.Submarines
                 else if (other.CompareTag("Player"))
                 {
                     other.GetComponent<Ship>().TakeDamage(15);
-                    GameObject explosion = (GameObject)Instantiate(_fireDamage, _explosionPoint.position, Quaternion.identity);
-                    explosion.transform.parent = other.transform;
-                    Destroy(explosion, 5f);
+
+                    if(_explosionPoint != null)
+                    {
+                        GameObject explosion = (GameObject)Instantiate(_fireDamage, _explosionPoint.position, Quaternion.identity);
+                        explosion.transform.parent = other.transform;
+                        Destroy(explosion, 5f);
+                    }
+
                     Hide();
                 }
             }

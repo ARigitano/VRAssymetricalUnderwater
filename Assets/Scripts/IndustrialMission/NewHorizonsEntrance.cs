@@ -119,11 +119,14 @@ namespace Underwater.IndustrialMission
             {
                 _questGiver._questCompleted = true;
                 _mineQuest.UpdateQuest("Objective complete! Report to the Specialist.");
-                _interactionAnim.SetTrigger("QuestComplete");
+
+                if (_interactionAnim != null)
+                    _interactionAnim.SetTrigger("QuestComplete");
             } 
             else
             {
-                _interactionAnim.SetTrigger("QuestObjective");
+                if(_interactionAnim != null)
+                    _interactionAnim.SetTrigger("QuestObjective");
             }
         }
 
